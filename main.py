@@ -11,6 +11,7 @@ from dotenv import load_dotenv
 load_dotenv('.env')
 router = Router()
 
+#helloa from asilbek
 #hello
 #salom xumoyun
 #qale
