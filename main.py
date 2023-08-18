@@ -12,6 +12,7 @@ load_dotenv('.env')
 router = Router()
 
 #salom xumoyun
+#qale
 async def main() -> None:
     dp = Dispatcher()
     dp.include_router(router)
