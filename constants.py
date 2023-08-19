@@ -2,6 +2,9 @@ SEND_LOCATION = "Joylashuvni yuborish"
 SELECT = "Hududni tanlash tanlsh"
 LOCATION_BACK = "⬅️ Orqaga"
 RETRY_SEND_LOCATION = "Joylashuvni qayta yuborish"
+CONFIRMITION = "✅ Tasdiqlash"
+
+CONFIRMITION_TEXT = "Manzilingiz tasdiqlandi"
 
 
 TASHKENT = "📍Toshkent"
