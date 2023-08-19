@@ -25,5 +25,5 @@ Assalomu alaykum va rohmatullohi va barokatuh!
 Namoz vaqtlari botiga xush kelibsiz.
 🕌Ushbu bot yordamida namoz vaqtlarini bilib olishingiz mumkin bo'ladi.
 
-©Barcha malumotlar islom.uz web-saytidan olingan!
+©Barcha malumotlar islom.uz web-saytidan olingan!.
 """
