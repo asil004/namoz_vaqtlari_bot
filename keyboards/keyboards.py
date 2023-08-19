@@ -30,7 +30,7 @@ def main_menu():
 
     builder.add(
         *[
-            KeyboardButton(text=SEND_LOCATION),
+            KeyboardButton(text=SEND_LOCATION,request_location=True),
             KeyboardButton(text=SELECT)
         ]
     )
@@ -44,7 +44,7 @@ def send_location():
 
     builder.add(
         *[
-            KeyboardButton(text=RETRY_SEND_LOCATION),
+            KeyboardButton(text=RETRY_SEND_LOCATION,request_location=True),
             KeyboardButton(text=CONFIRMITION),
             KeyboardButton(text=LOCATION_BACK)
         ]

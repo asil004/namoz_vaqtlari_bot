@@ -1,5 +1,5 @@
 SEND_LOCATION = "Joylashuvni yuborish"
-SELECT = "Hududni tanlash tanlsh"
+SELECT = "Hududni tanlash tanlash"
 LOCATION_BACK = "⬅️ Orqaga"
 RETRY_SEND_LOCATION = "Joylashuvni qayta yuborish"
 CONFIRMITION = "✅ Tasdiqlash"

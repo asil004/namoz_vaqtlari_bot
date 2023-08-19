@@ -5,11 +5,13 @@ from app.methods import get_location
 from constants import (
     CONFIRMITION,
     LOCATION_BACK,
-    CONFIRMITION_TEXT
+    CONFIRMITION_TEXT,
+    SELECT
 )
 from keyboards.keyboards import (
     main_menu,
-    when
+    when,
+    select
 )
 
 router = Router()
@@ -31,3 +33,8 @@ async def confirmition(message: types.Message):
 @router.message(F.text == LOCATION_BACK)
 async def back(message: types.Message):
     await message.answer(text="Asosiy menyu", reply_markup=main_menu())
+
+
+@router.message(F.text == SELECT)
+async def select(message: types.Message):
+    await message.answer(text="Huduni tanlang", reply_markup=select())
