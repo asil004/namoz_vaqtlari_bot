@@ -25,12 +25,13 @@ from constants import (
     WEEK
 )
 
+
 def main_menu():
     builder = KeyboardBuilder(KeyboardButton)
 
     builder.add(
         *[
-            KeyboardButton(text=SEND_LOCATION,request_location=True),
+            KeyboardButton(text=SEND_LOCATION, request_location=True),
             KeyboardButton(text=SELECT)
         ]
     )
@@ -38,13 +39,13 @@ def main_menu():
 
     return builder.as_markup(resize_keyboard=True)
 
-def send_location():
 
+def send_location():
     builder = KeyboardBuilder(KeyboardButton)
 
     builder.add(
         *[
-            KeyboardButton(text=RETRY_SEND_LOCATION,request_location=True),
+            KeyboardButton(text=RETRY_SEND_LOCATION, request_location=True),
             KeyboardButton(text=CONFIRMITION),
             KeyboardButton(text=LOCATION_BACK)
         ]
@@ -53,8 +54,8 @@ def send_location():
 
     return builder.as_markup(resize_keyboard=True)
 
-def select():
 
+def select():
     builder = KeyboardBuilder(KeyboardButton)
 
     builder.add(
@@ -71,21 +72,23 @@ def select():
             KeyboardButton(text=QASHQADARYO),
             KeyboardButton(text=SURXONDARYO),
             KeyboardButton(text=XORAZIM),
-            KeyboardButton(text=QORAQALPOGISTON)
+            KeyboardButton(text=QORAQALPOGISTON),
+            KeyboardButton(text=LOCATION_BACK)
         ]
     )
     builder.adjust(3)
 
     return builder.as_markup(resize_keyboard=True)
 
-def when():
 
+def when():
     builder = KeyboardBuilder(KeyboardButton)
 
     builder.add(
         *[
             KeyboardButton(text=TODAY),
-            KeyboardButton(text=WEEK)
+            KeyboardButton(text=WEEK),
+            KeyboardButton(text=LOCATION_BACK)
         ]
     )
     builder.adjust(2)

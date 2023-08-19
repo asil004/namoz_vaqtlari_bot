@@ -6,12 +6,15 @@ from constants import (
     CONFIRMITION,
     LOCATION_BACK,
     CONFIRMITION_TEXT,
-    SELECT
+    SELECT,
+    regions,
+    LOCATION_BACK, CONFIRM_LOC
 )
 from keyboards.keyboards import (
     main_menu,
     when,
-    select
+    select,
+    send_location
 )
 
 router = Router()
@@ -22,7 +25,7 @@ async def my_location(message: types.Message):
     lat = message.location.latitude
     long = message.location.longitude
     locat = get_location(lat, long)
-    await message.answer(locat)
+    await message.answer(text=CONFIRM_LOC.format(city=locat), reply_markup=send_location())
 
 
 @router.message(F.text == CONFIRMITION)
@@ -36,5 +39,10 @@ async def back(message: types.Message):
 
 
 @router.message(F.text == SELECT)
-async def select(message: types.Message):
-    await message.answer(text="Huduni tanlang", reply_markup=select())
+async def select_handler(message: types.Message):
+    await message.answer(text="Hududni tanlang", reply_markup=select())
+
+
+@router.message(F.text == LOCATION_BACK)
+async def back_handler(message: types.Message):
+    await message.answer(text="Bosh menuga qaytdingiz!", reply_markup=main_menu())
