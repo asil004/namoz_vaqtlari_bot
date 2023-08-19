@@ -5,6 +5,7 @@ from constants import (
     SELECT,
     RETRY_SEND_LOCATION,
     LOCATION_BACK,
+    CONFIRMITION,
 
     TASHKENT,
     NAMANGAN,
@@ -44,6 +45,7 @@ def send_location():
     builder.add(
         *[
             KeyboardButton(text=RETRY_SEND_LOCATION),
+            KeyboardButton(text=CONFIRMITION),
             KeyboardButton(text=LOCATION_BACK)
         ]
     )

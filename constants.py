@@ -4,7 +4,7 @@ LOCATION_BACK = "⬅️ Orqaga"
 RETRY_SEND_LOCATION = "Joylashuvni qayta yuborish"
 CONFIRMITION = "✅ Tasdiqlash"
 
-CONFIRMITION_TEXT = "Manzilingiz tasdiqlandi."
+CONFIRMITION_TEXT = "Manzilingiz tasdiqlandi"
 
 TASHKENT = "📍Toshkent"
 NAMANGAN = "📍Namangan"
