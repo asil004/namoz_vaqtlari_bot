@@ -6,7 +6,6 @@ CONFIRMITION = "✅ Tasdiqlash"
 
 CONFIRMITION_TEXT = "Manzilingiz tasdiqlandi"
 
-
 TASHKENT = "📍Toshkent"
 NAMANGAN = "📍Namangan"
 JIZZAX = "📍Jizzax"
@@ -23,3 +22,11 @@ QORAQALPOGISTON = "📍Nukus"
 
 TODAY = "Bugun"
 WEEK = "Hafta"
+
+SALAM_TEXT = """
+Assalomu alaykum va rohmatullohi va barokatuh!
+Namoz vaqtlari botiga xush kelibsiz.
+🕌Ushbu bot yordamida namoz vaqtlarini bilib olishingiz mumkin bo'ladi.
+
+©Barcha malumotlar islom.uz web-saytidan olingan!.
+"""
