@@ -36,5 +36,5 @@ async def back(message: types.Message):
 
 
 @router.message(F.text == SELECT)
-async def select(message: types.Message):
+async def select_handler(message: types.Message):
     await message.answer(text="Huduni tanlang", reply_markup=select())
