@@ -7,14 +7,13 @@ from aiogram import Bot, Dispatcher, Router
 from aiogram.enums import ParseMode
 from aiogram.types import BotCommand
 from dotenv import load_dotenv
+from routers import router as all_router
 
 load_dotenv('.env')
 router = Router()
+router.include_router(all_router)
 
-#helloa from asilbek
-#hello
-#salom xumoyun
-#qale
+
 async def main() -> None:
     dp = Dispatcher()
     dp.include_router(router)
