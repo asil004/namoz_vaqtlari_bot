@@ -1,10 +1,10 @@
 SEND_LOCATION = "Joylashuvni yuborish"
-SELECT = "Hududni tanlash tanlash"
+SELECT = "Hududni tanlash"
 LOCATION_BACK = "⬅️ Orqaga"
 RETRY_SEND_LOCATION = "Joylashuvni qayta yuborish"
 CONFIRMITION = "✅ Tasdiqlash"
 
-CONFIRMITION_TEXT = "Manzilingiz tasdiqlandi"
+CONFIRMITION_TEXT = "Manzilingiz tasdiqlandi\n\nNamoz vaqtini tanlang!"
 
 TASHKENT = "📍Toshkent"
 NAMANGAN = "📍Namangan"
@@ -22,6 +22,8 @@ QORAQALPOGISTON = "📍Nukus"
 
 TODAY = "Bugun"
 WEEK = "Hafta"
+
+CONFIRM_LOC = "📍Manzilingiz:\n <b>{city}</b>"
 
 SALAM_TEXT = """
 Assalomu alaykum va rohmatullohi va barokatuh!
@@ -108,3 +110,94 @@ Asr: {yak_asr}
 Shom: {yak_shom}
 Xufton: {yak_xufton}
 """
+regions = [
+    "Оltiariq",
+    "Bishkek",
+    "O'smat",
+    "To'rtko'l",
+    "Uzunquduq",
+    "Jizzax",
+    "Оltinko'l",
+    "Chimkent",
+    "Rishtоn",
+    "Xo'jaоbоd",
+    "Do'stlik",
+    "Buxoro",
+    "Termiz",
+    "Dushanbye",
+    "Turkmanоbоd",
+    "Qоrоvulbоzоr",
+    "Оlmaоta",
+    "Xоnqa",
+    "Tallimarjоn",
+    "Uchqo'rg'оn",
+    "Uchtepa",
+    "Xоnоbоd",
+    "Toshkent",
+    "G'uzоr",
+    "Bekоbоd",
+    "Navoiy",
+    "Qo'rg'оntepa",
+    "Mubоrak",
+    "Ashxabоd",
+    "Оlоt",
+    "Jalоlоbоd",
+    "Nurоta",
+    "Andijon",
+    "Turkistоn",
+    "Shumanay",
+    "Namangan",
+    "Chimbоy",
+    "Jоmbоy",
+    "Sherоbоd",
+    "Mo'ynоq",
+    "Bulоqbоshi",
+    "Uchquduq",
+    "Samarqand",
+    "Qiziltepa",
+    "Zоmin",
+    "Xo'jand",
+    "Tоmdi",
+    "Yangibоzоr",
+    "Jambul",
+    "Nukus",
+    "Chоrtоq",
+    "Taxtako'pir",
+    "Tоshhоvuz",
+    "Xiva",
+    "Kоsоnsоy",
+    "Kоnimex",
+    "Mingbulоq",
+    "Paxtaоbоd",
+    "Denоv",
+    "O'g'iz",
+    "Qo'ng'irоt",
+    "Chust",
+    "Kattaqo'rg'оn",
+    "Farg'оna",
+    "Qоrako'l",
+    "Arnasоy",
+    "Osh",
+    "Sayram",
+    "Angren",
+    "Pоp",
+    "G'allaоrоl",
+    "Urgut",
+    "Shahrixоn",
+    "Guliston",
+    "Qumqo'rg'оn",
+    "Bоysun",
+    "Urganch",
+    "Qo'qon",
+    "Gazli",
+    "Xazоrasp",
+    "Marg'ilon",
+    "Shоvоt",
+    "Kоnibоdоm",
+    "Quva",
+    "Burchmulla",
+    "Dehqоnоbоd",
+    "Zarafshоn",
+    "Qarshi",
+    "Kоsоn"
+]
