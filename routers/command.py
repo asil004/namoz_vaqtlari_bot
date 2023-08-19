@@ -46,3 +46,5 @@ async def select_handler(message: types.Message):
 @router.message(F.text == LOCATION_BACK)
 async def back_handler(message: types.Message):
     await message.answer(text="Bosh menuga qaytdingiz!", reply_markup=main_menu())
+
+#
