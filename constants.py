@@ -34,7 +34,7 @@ Namoz vaqtlari botiga xush kelibsiz.
 """
 
 TODAY_PRAY_TEXT = """
-Bugun {day}-{moth}.
+Bugun {day}-{month}.
 Hudud: {hudud}.
 
 ☪️ Namoz vaqtlari:

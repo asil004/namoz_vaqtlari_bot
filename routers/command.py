@@ -1,13 +1,17 @@
+import os
+
 from aiogram import Router, F
 from aiogram import types
+from dotenv import load_dotenv
+
 from app.methods import get_location, get_prayer_time
 from constants import (
     CONFIRMITION,
-    LOCATION_BACK,
     CONFIRMITION_TEXT,
     SELECT,
     regions,
-    LOCATION_BACK, CONFIRM_LOC, TODAY
+    LOCATION_BACK, CONFIRM_LOC, TODAY,
+    TODAY_PRAY_TEXT
 )
 from keyboards.keyboards import (
     main_menu,
@@ -15,6 +19,9 @@ from keyboards.keyboards import (
     select,
     send_location
 )
+from users_location import users
+
+load_dotenv('users_location.txt')
 
 router = Router()
 city = ''
@@ -31,9 +38,10 @@ async def my_location(message: types.Message):
 @router.message(F.text == CONFIRMITION)
 async def confirmition(message: types.Message):
     global city
-    with open('users_location.txt', 'w') as file:
-        file.writelines(f'{message.from_user.id}={city}')
-    city = ''
+    if str(message.from_user.id) in users.keys():
+        users[message.from_user.id] = city
+    else:
+        users[message.from_user.id] = city
     await message.answer(text=CONFIRMITION_TEXT, reply_markup=when())
 
 
@@ -61,4 +69,12 @@ async def get_pray_times(message: types.Message):
 
 @router.message(F.text == TODAY)
 async def get_pray_times_today(message: types.Message):
-    pass
+    user_id = message.from_user.id
+    namoz_time = get_prayer_time(location=users[message.from_user.id], select=message.text)
+    print(namoz_time)
+    # await message.answer(namoz_time)
+    await message.answer(
+        text=TODAY_PRAY_TEXT.format(day=namoz_time['date'], month=namoz_time['date'], hudud=namoz_time['region'],
+                                    bomdod=namoz_time['times']['tong_saharlik'], quyosh=namoz_time['times']['quyosh'],
+                                    peshin=namoz_time['times']['peshin'], asr=namoz_time['times']['asr'],
+                                    shom=namoz_time['times']['shom_iftor'], xufton=namoz_time['times']['hufton']))
