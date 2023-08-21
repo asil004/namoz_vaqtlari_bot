@@ -2,6 +2,8 @@ import os
 
 from aiogram import Router, types
 from aiogram.filters import CommandStart
+from aiogram.types import URLInputFile
+
 from constants import SALAM_TEXT
 from dotenv import load_dotenv
 from keyboards.keyboards import main_menu

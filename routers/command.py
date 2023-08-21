@@ -1,7 +1,7 @@
 from aiogram import Router, F
 from aiogram import types
 
-from app.methods import get_location
+from app.methods import get_location, get_prayer_time
 from constants import (
     CONFIRMITION,
     LOCATION_BACK,
@@ -18,6 +18,7 @@ from keyboards.keyboards import (
 )
 
 router = Router()
+city = ''
 
 
 @router.message(F.content_type.in_({"location"}))
@@ -46,3 +47,8 @@ async def select_handler(message: types.Message):
 @router.message(F.text == LOCATION_BACK)
 async def back_handler(message: types.Message):
     await message.answer(text="Bosh menuga qaytdingiz!", reply_markup=main_menu())
+
+
+@router.message(F.text.in_(regions))
+async def get_pray_times(message: types.Message):
+    await message.answer(text=get_prayer_time(message.text))
