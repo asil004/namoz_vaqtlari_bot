@@ -22,7 +22,7 @@ def get_location(lat, long):
         else:
             return f"Hudud aniqlanmadi iltimos \"Hududni tanlash\" bo'limiga muroojat qiling."
     else:
-        if location.get('region')[:9] in regions:
+        if location.get('region') in regions:
             return location.get('region')[:9]
         return f"Hudud aniqlanmadi iltimos \"Hududni tanlash\" bo'limiga muroojat qiling."
 

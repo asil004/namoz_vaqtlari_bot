@@ -47,6 +47,7 @@ def send_location():
         *[
             KeyboardButton(text=RETRY_SEND_LOCATION, request_location=True),
             KeyboardButton(text=CONFIRMITION),
+            KeyboardButton(text=SELECT),
             KeyboardButton(text=LOCATION_BACK)
         ]
     )
