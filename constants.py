@@ -34,8 +34,9 @@ Namoz vaqtlari botiga xush kelibsiz.
 """
 
 TODAY_PRAY_TEXT = """
-Bugun {day}-{month}.
-Hudud: {hudud}.
+⏲Bugun {time}.
+
+🏙Hudud: {hudud}.
 
 ☪️ Namoz vaqtlari:
 
@@ -50,11 +51,13 @@ Manba: islom.uz
 """
 
 WEEK_PRAY_TIME = """
-Bir haftalik namoz vaqtlari {start_date} - {end_date}.
-Hudud: {hudud}.
+⏲Bir haftalik namoz vaqtlari: {start_date} - {end_date}.
+
+🏙Hudud: {hudud}.
 
 ☪️ Namoz vaqtlari:
-Kun: <i><b>Dushanba</b></i>
+
+<b>Kun: <i>Dushanba</i></b>
 Bomdod: {dush_bomdod}
 Quyosh: {dush_quyosh}
 Peshin: {dush_peshin}
@@ -62,7 +65,7 @@ Asr: {dush_asr}
 Shom: {dush_shom}
 Xufton: {dush_xufton}
 
-Kun: <i><b>Seshanba</b></i>
+<b>Kun: <i>Seshanba</i></b>
 Bomdod: {sesh_bomdod}
 Quyosh: {sesh_quyosh}
 Peshin: {sesh_peshin}
@@ -70,7 +73,7 @@ Asr: {sesh_asr}
 Shom: {sesh_shom}
 Xufton: {sesh_xufton}
 
-Kun: <i><b>Chorshanba</b></i>
+<b>Kun: <i>Chorshanba</i></b>
 Bomdod: {chor_bomdod}
 Quyosh: {chor_quyosh}
 Peshin: {chor_peshin}
@@ -78,7 +81,7 @@ Asr: {chor_asr}
 Shom: {chor_shom}
 Xufton: {chor_xufton}
 
-Kun: <i><b>Payshanba</b></i>
+<b>Kun: <i>Payshanba</i></b>
 Bomdod: {pay_bomdod}
 Quyosh: {pay_quyosh}
 Peshin: {pay_peshin}
@@ -86,7 +89,7 @@ Asr: {pay_asr}
 Shom: {pay_shom}
 Xufton: {pay_xufton}
 
-Kun: <i><b>Juma</b></i>
+<b>Kun: <i>Juma</i></b>
 Bomdod: {juma_bomdod}
 Quyosh: {juma_quyosh}
 Peshin: {juma_peshin}
@@ -94,7 +97,7 @@ Asr: {juma_asr}
 Shom: {juma_shom}
 Xufton: {juma_xufton}
 
-Kun: <i><b>Shanba</b></i>
+<b>Kun: <i>Shanba</i></b>
 Bomdod: {shan_bomdod}
 Quyosh: {shan_quyosh}
 Peshin: {shan_peshin}
@@ -102,7 +105,7 @@ Asr: {shan_asr}
 Shom: {shan_shom}
 Xufton: {shan_xufton}
 
-Kun: <i><b>Yanshanba</b></i>
+<b>Kun: <i>Yakshanba</i></b>
 Bomdod: {yak_bomdod}
 Quyosh: {yak_quyosh}
 Peshin: {yak_peshin}

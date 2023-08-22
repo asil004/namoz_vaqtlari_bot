@@ -1,4 +1,7 @@
+import time
+
 import requests
+import schedule
 from geopy.geocoders import Nominatim
 from constants import regions
 
@@ -50,8 +53,17 @@ def get_prayer_time(location, select):
         return False
 
 
+def job():
+    print('Im working')
+
+
+schedule.every(10).seconds.do(job)
+
 if __name__ == '__main__':
     # print(get_prayer_time('Toshkent', 'Hafta'))
     # print(get_location(41.326466, 69.22848))
     # print(get_location(40.809359, 68.64391))
     print(get_location(40.809359, 68.64391))
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
