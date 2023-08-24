@@ -22,6 +22,7 @@ async def main() -> None:
         BotCommand(command='start', description="Botni ishga tushurish uchun bosing")
     ]
     await bot.set_my_commands(commands)
+    await bot.delete_webhook(drop_pending_updates=True)
     await dp.start_polling(bot)
 
 

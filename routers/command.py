@@ -71,8 +71,6 @@ async def get_pray_times(message: types.Message):
 async def get_pray_times_today(message: types.Message):
     user_id = message.from_user.id
     namoz_time = get_prayer_time(location=users[message.from_user.id], select=message.text)
-    print(namoz_time)
-    # await message.answer(namoz_time)
     await message.answer(
         text=TODAY_PRAY_TEXT.format(time=namoz_time['date'], hudud=namoz_time['region'],
                                     bomdod=namoz_time['times']['tong_saharlik'], quyosh=namoz_time['times']['quyosh'],
