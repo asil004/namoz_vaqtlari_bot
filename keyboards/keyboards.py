@@ -40,6 +40,22 @@ def main_menu():
     return builder.as_markup(resize_keyboard=True)
 
 
+def main_menu_for_users(region):
+    builder = KeyboardBuilder(KeyboardButton)
+
+    builder.add(
+        *[
+            KeyboardButton(text=SEND_LOCATION, request_location=True),
+            KeyboardButton(text=SELECT),
+            KeyboardButton(text=f"{region}"),
+            KeyboardButton(text="Biz haqimizda")
+        ]
+    )
+    builder.adjust(2)
+
+    return builder.as_markup(resize_keyboard=True)
+
+
 def send_location():
     builder = KeyboardBuilder(KeyboardButton)
 

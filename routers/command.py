@@ -3,6 +3,9 @@ import os
 from aiogram import Router, F
 from aiogram import types
 from dotenv import load_dotenv
+from aiogram.fsm.context import FSMContext
+from aiogram.fsm.state import State, StatesGroup
+from app import database as db
 
 from app.methods import get_location, get_prayer_time
 from constants import (
@@ -24,7 +27,10 @@ from users_location import users
 load_dotenv('users_location.txt')
 
 router = Router()
-city = ''
+
+
+class Form(StatesGroup):
+    region = State()
 
 
 @router.message(F.content_type.in_({"location"}))
@@ -36,12 +42,15 @@ async def my_location(message: types.Message):
 
 
 @router.message(F.text == CONFIRMITION)
-async def confirmition(message: types.Message):
-    global city
-    if str(message.from_user.id) in users.keys():
-        users[message.from_user.id] = city
-    else:
-        users[message.from_user.id] = city
+async def confirmation(message: types.Message, state: FSMContext):
+    reg = await state.get_data()
+    await db.insert_user(user_id=message.from_user.id, data=reg)
+
+    await state.clear()
+    # if str(message.from_user.id) in users.keys():
+    #     users[message.from_user.id] = city
+    # else:
+    #     users[message.from_user.id] = city
     await message.answer(text=CONFIRMITION_TEXT, reply_markup=when())
 
 
@@ -51,7 +60,8 @@ async def back(message: types.Message):
 
 
 @router.message(F.text == SELECT)
-async def select_handler(message: types.Message):
+async def select_handler(message: types.Message, state: FSMContext):
+    await state.set_state(Form.region)
     await message.answer(text="Hududni tanlang", reply_markup=select())
 
 
@@ -60,8 +70,10 @@ async def back_handler(message: types.Message):
     await message.answer(text="Bosh menuga qaytdingiz!", reply_markup=main_menu())
 
 
+@router.message(Form.region)
 @router.message(F.text.in_(regions))
-async def get_pray_times(message: types.Message):
+async def get_pray_times(message: types.Message, state: FSMContext):
+    await state.update_data(region=message.text)
     await message.answer(text=CONFIRM_LOC.format(city=message.text), reply_markup=send_location())
     global city
     city = message.text
