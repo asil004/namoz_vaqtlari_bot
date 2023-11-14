@@ -111,3 +111,16 @@ def when():
     builder.adjust(2)
 
     return builder.as_markup(resize_keyboard=True)
+
+
+def back_kb():
+    builder = KeyboardBuilder(KeyboardButton)
+
+    builder.add(
+        *[
+            KeyboardButton(text=LOCATION_BACK)
+        ]
+    )
+    builder.adjust(1)
+
+    return builder.as_markup(resize_keyboard=True)

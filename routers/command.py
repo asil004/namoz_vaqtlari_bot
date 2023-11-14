@@ -20,9 +20,10 @@ from keyboards.keyboards import (
     main_menu,
     when,
     select,
-    send_location
+    send_location,
+    back_kb,
+    main_menu_for_users
 )
-from users_location import users
 
 load_dotenv('users_location.txt')
 
@@ -45,18 +46,17 @@ async def my_location(message: types.Message):
 async def confirmation(message: types.Message, state: FSMContext):
     reg = await state.get_data()
     await db.insert_user(user_id=message.from_user.id, data=reg)
-
     await state.clear()
-    # if str(message.from_user.id) in users.keys():
-    #     users[message.from_user.id] = city
-    # else:
-    #     users[message.from_user.id] = city
     await message.answer(text=CONFIRMITION_TEXT, reply_markup=when())
 
 
 @router.message(F.text == LOCATION_BACK)
 async def back(message: types.Message):
-    await message.answer(text="Asosiy menyu", reply_markup=main_menu())
+    reg = await db.get_if_user(message.from_user.id)
+    if reg:
+        await message.answer(text="Asosiy menyu", reply_markup=main_menu_for_users(reg[0]))
+    else:
+        await message.answer(text="Asosiy menyu", reply_markup=main_menu())
 
 
 @router.message(F.text == SELECT)
@@ -75,25 +75,26 @@ async def back_handler(message: types.Message):
 async def get_pray_times(message: types.Message, state: FSMContext):
     await state.update_data(region=message.text)
     await message.answer(text=CONFIRM_LOC.format(city=message.text), reply_markup=send_location())
-    global city
-    city = message.text
 
 
 @router.message(F.text == TODAY)
 async def get_pray_times_today(message: types.Message):
     user_id = message.from_user.id
-    namoz_time = get_prayer_time(location=users[message.from_user.id], select=message.text)
+    reg = await db.get_region(user_id)
+    namoz_time = get_prayer_time(location=reg[0], select=message.text)
     await message.answer(
         text=TODAY_PRAY_TEXT.format(time=namoz_time['date'], hudud=namoz_time['region'],
                                     bomdod=namoz_time['times']['tong_saharlik'], quyosh=namoz_time['times']['quyosh'],
                                     peshin=namoz_time['times']['peshin'], asr=namoz_time['times']['asr'],
-                                    shom=namoz_time['times']['shom_iftor'], xufton=namoz_time['times']['hufton']))
+                                    shom=namoz_time['times']['shom_iftor'], xufton=namoz_time['times']['hufton']),
+        reply_markup=back_kb())
 
 
 @router.message(F.text == WEEK)
 async def get_pray_times_week(message: types.Message):
     user_id = message.from_user.id
-    namoz_time = get_prayer_time(location=users[message.from_user.id], select=message.text)
+    reg = await db.get_region(user_id)
+    namoz_time = get_prayer_time(location=reg[0], select=message.text)
     await message.answer(
         text=WEEK_PRAY_TIME.format(
             start_date=namoz_time[0]['date'][:10], end_date=namoz_time[-1]['date'][:10], hudud=namoz_time[0]['region'],
@@ -118,5 +119,6 @@ async def get_pray_times_week(message: types.Message):
             yak_bomdod=namoz_time[6]['times']['tong_saharlik'], yak_quyosh=namoz_time[6]['times']['quyosh'],
             yak_peshin=namoz_time[6]['times']['peshin'], yak_asr=namoz_time[6]['times']['asr'],
             yak_shom=namoz_time[6]['times']['shom_iftor'], yak_xufton=namoz_time[6]['times']['hufton']
-        )
+        ),
+        reply_markup=back()
     )
